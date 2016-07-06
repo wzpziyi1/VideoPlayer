@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "ZYTransport.h"
 
 
 @interface ZYPlayerView : UIView
 @property (nonatomic, strong) AVPlayer *player;
+
+@property (nonatomic, weak) id<ZYTransport>transport;
+
 @end

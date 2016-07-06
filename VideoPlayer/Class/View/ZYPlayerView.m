@@ -7,9 +7,10 @@
 //
 
 #import "ZYPlayerView.h"
+#import "ZYOverlayView.h"
 
 @interface ZYPlayerView ()
-
+@property (nonatomic, strong) ZYOverlayView *overlayView;
 @end
 
 
@@ -20,6 +21,30 @@
     return [AVPlayerLayer class];
 }
 
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        [self commitInit];
+    }
+    return self;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    [self commitInit];
+}
+
+
+- (void)commitInit
+{
+    self.overlayView = [ZYOverlayView overlayView];
+    
+    [self addSubview:self.overlayView];
+}
+
 - (AVPlayer *)player
 {
     return [(AVPlayerLayer *)[self layer] player];
@@ -28,6 +53,19 @@
 - (void)setPlayer:(AVPlayer *)player
 {
     [(AVPlayerLayer *)[self layer] setPlayer:player];
+}
+
+- (id<ZYTransport>)transport
+{
+    return self.overlayView;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.overlayView.frame = self.bounds;
+    
 }
 
 @end

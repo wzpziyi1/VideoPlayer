@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZYTransport.h"
 
-@interface ZYOverlayView : UIView
+@interface ZYOverlayView : UIView <ZYTransport>
+
+@property (nonatomic, assign) CMTime durationTime;
+
+@property (nonatomic, weak) id<ZYTransportDelegate>delegate;
+
++ (instancetype)overlayView;
+
+- (void)setCurrentPlayTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
+
+- (void)setCurrentBufferTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
+
+- (void)playbackComplete;
 
 @end

@@ -63,6 +63,7 @@
 		09189CA81D2CA49200BC218F /* ZYPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYPlayerView.h; sourceTree = "<group>"; };
 		09189CA91D2CA49200BC218F /* ZYPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYPlayerView.m; sourceTree = "<group>"; };
 		09189CB01D2CA4C200BC218F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		09189CB31D2CA9C000BC218F /* ZYTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYTransport.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +157,7 @@
 			children = (
 				09189C9C1D2CA49200BC218F /* AppDelegate.h */,
 				09189C9D1D2CA49200BC218F /* AppDelegate.m */,
+				09189CB21D2CA98600BC218F /* Protocol */,
 				09189C9E1D2CA49200BC218F /* Model */,
 				09189C9F1D2CA49200BC218F /* Tool */,
 				09189CA01D2CA49200BC218F /* Vc */,
@@ -198,6 +200,14 @@
 				09189CA91D2CA49200BC218F /* ZYPlayerView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		09189CB21D2CA98600BC218F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				09189CB31D2CA9C000BC218F /* ZYTransport.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

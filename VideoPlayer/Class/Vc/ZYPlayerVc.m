@@ -9,13 +9,16 @@
 #import "ZYPlayerVc.h"
 #import "ZYPlayerView.h"
 #import <AVFoundation/AVFoundation.h>
+#import "ZYTransport.h"
 
-@interface ZYPlayerVc ()
+@interface ZYPlayerVc () <ZYTransportDelegate>
 @property (weak, nonatomic) IBOutlet ZYPlayerView *playerView;
 
 @property (nonatomic, strong) AVPlayer *player;
 
 @property (nonatomic, strong) AVPlayerItem *playerItem;
+
+@property (nonatomic, weak) id<ZYTransport>transport;
 
 @end
 
@@ -26,7 +29,7 @@
     // Do any additional setup after loading the view from its nib.
     
     
-    NSURL *url = [NSURL URLWithString:@"http://v.jxvdy.com/sendfile/w5bgP3A8JgiQQo5l0hvoNGE2H16WbN09X-ONHPq3P3C1BISgf7C-qVs6_c8oaw3zKScO78I--b0BGFBRxlpw13sf2e54QA"];
+    NSURL *url = [NSURL URLWithString:@"http://www.jxvdy.com/file/upload/201405/05/18-24-58-42-627.mp4"];
     self.playerItem = [[AVPlayerItem alloc] initWithURL:url];
     
     //监听status属性
@@ -73,6 +76,33 @@
     }
     
 }
+
+#pragma mark ----ZYTransportDelegate
+
+- (void)play
+{
+    
+}
+
+- (void)pause
+{
+    
+}
+
+- (void)stop
+{
+    
+}
+
+/**
+ *  跳转到某个时间点播放
+ *
+ */
+- (void)jumpedToTime:(NSTimeInterval)time
+{
+    
+}
+
 
 
 - (void)dealloc

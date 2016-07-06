@@ -61,11 +61,21 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-3j-k2R" userLabel="progressView">
-                                    <rect key="frame" x="140" y="28" width="332" height="3"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-3j-k2R" userLabel="totalProgress">
+                                    <rect key="frame" x="140" y="28.5" width="332" height="2"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-hp-VcG" userLabel="currentProgress">
+                                            <rect key="frame" x="0.0" y="0.0" width="232" height="2"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="3" id="ulO-P9-u67"/>
+                                        <constraint firstItem="G7n-hp-VcG" firstAttribute="top" secondItem="HvB-3j-k2R" secondAttribute="top" id="a2c-tb-Tco"/>
+                                        <constraint firstAttribute="trailing" secondItem="G7n-hp-VcG" secondAttribute="trailing" constant="100" id="acc-WK-4ZP"/>
+                                        <constraint firstAttribute="bottom" secondItem="G7n-hp-VcG" secondAttribute="bottom" id="awc-2w-zKa"/>
+                                        <constraint firstItem="G7n-hp-VcG" firstAttribute="leading" secondItem="HvB-3j-k2R" secondAttribute="leading" id="fdE-gr-h1R"/>
+                                        <constraint firstAttribute="height" constant="2" id="ulO-P9-u67"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2:30:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-gc-P2E">
@@ -75,7 +85,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="knob" highlightedImage="knob_highlighted" translatesAutoresizingMaskIntoConstraints="NO" id="VGy-fr-os9">
-                                    <rect key="frame" x="129" y="15" width="30" height="30"/>
+                                    <rect key="frame" x="121" y="14" width="30" height="30"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.98823529409999999" green="0.73333333329999995" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,6 +102,13 @@
                                 <constraint firstAttribute="height" constant="60" id="nfJ-Q6-WnE"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-Ns-p9L" userLabel="currentTime">
+                            <rect key="frame" x="103" y="223" width="60" height="35"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="6"/>
+                            <state key="normal" title="2:20" backgroundImage="tp_info_popup">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -120,5 +137,6 @@
         <image name="knob_highlighted" width="29" height="29"/>
         <image name="pause" width="72" height="46"/>
         <image name="play" width="72" height="46"/>
+        <image name="tp_info_popup" width="83" height="33"/>
     </resources>
 </document>
