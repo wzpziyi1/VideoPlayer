@@ -15,54 +15,64 @@
                     <rect key="frame" x="0.0" y="0.0" width="562" height="320"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvO-rr-Syb" userLabel="topView">
-                            <rect key="frame" x="0.0" y="0.0" width="562" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="562" height="30"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7C8-Wv-cXn">
-                                    <rect key="frame" x="20" y="15" width="46" height="30"/>
+                                    <rect key="frame" x="20" y="0.0" width="50" height="30"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="46" id="TbH-I9-zTo"/>
-                                        <constraint firstAttribute="height" constant="30" id="rZ4-qD-oud"/>
+                                        <constraint firstAttribute="width" constant="50" id="Mmv-DB-vuS"/>
+                                        <constraint firstAttribute="height" constant="30" id="y2v-zD-4Tv"/>
                                     </constraints>
                                     <state key="normal" title="完成"/>
+                                    <connections>
+                                        <action selector="clickFinishBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="uQb-LZ-gTt"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHu-lc-DJ9">
-                                    <rect key="frame" x="496" y="15" width="46" height="30"/>
+                                    <rect key="frame" x="492" y="0.0" width="50" height="30"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="46" id="8e0-OO-aRO"/>
-                                        <constraint firstAttribute="height" constant="30" id="hQp-ue-NoW"/>
+                                        <constraint firstAttribute="width" constant="50" id="mRS-Un-wn4"/>
                                     </constraints>
                                     <state key="normal" title="全屏"/>
+                                    <connections>
+                                        <action selector="clickFillScreenBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="0mA-w5-4sc"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.98823529409999999" green="0.73333333329999995" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="GHu-lc-DJ9" secondAttribute="trailing" constant="20" id="16M-69-psv"/>
-                                <constraint firstItem="7C8-Wv-cXn" firstAttribute="leading" secondItem="HvO-rr-Syb" secondAttribute="leading" constant="20" id="Axl-Tb-WLS"/>
-                                <constraint firstItem="7C8-Wv-cXn" firstAttribute="centerY" secondItem="HvO-rr-Syb" secondAttribute="centerY" id="MmD-gs-2aH"/>
-                                <constraint firstItem="GHu-lc-DJ9" firstAttribute="centerY" secondItem="HvO-rr-Syb" secondAttribute="centerY" id="WXJ-MI-JeW"/>
-                                <constraint firstAttribute="height" constant="60" id="oC6-A6-cIN"/>
+                                <constraint firstItem="7C8-Wv-cXn" firstAttribute="top" secondItem="HvO-rr-Syb" secondAttribute="top" id="9vB-gO-VY1"/>
+                                <constraint firstItem="7C8-Wv-cXn" firstAttribute="leading" secondItem="HvO-rr-Syb" secondAttribute="leading" constant="20" id="Nok-4e-mN8"/>
+                                <constraint firstAttribute="bottom" secondItem="GHu-lc-DJ9" secondAttribute="bottom" id="RL7-ZV-yvy"/>
+                                <constraint firstAttribute="bottom" secondItem="7C8-Wv-cXn" secondAttribute="bottom" id="lzf-S0-ta1"/>
+                                <constraint firstAttribute="height" constant="30" id="oC6-A6-cIN"/>
+                                <constraint firstItem="GHu-lc-DJ9" firstAttribute="top" secondItem="HvO-rr-Syb" secondAttribute="top" id="u9K-L7-LvU"/>
+                                <constraint firstAttribute="trailing" secondItem="GHu-lc-DJ9" secondAttribute="trailing" constant="20" id="vvX-TE-rdm"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HCT-5b-Wdu" userLabel="bottomView">
-                            <rect key="frame" x="0.0" y="260" width="562" height="60"/>
+                            <rect key="frame" x="0.0" y="290" width="562" height="30"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km3-rq-yBf" userLabel="playBtn">
-                                    <rect key="frame" x="20" y="12" width="55" height="35"/>
+                                    <rect key="frame" x="20" y="2" width="40" height="25"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="35" id="VOQ-kG-HlC"/>
-                                        <constraint firstAttribute="width" constant="55" id="xEW-Wd-LyX"/>
+                                        <constraint firstAttribute="height" constant="25" id="VOQ-kG-HlC"/>
+                                        <constraint firstAttribute="width" constant="40" id="xEW-Wd-LyX"/>
                                     </constraints>
                                     <state key="normal" image="play"/>
                                     <state key="selected" image="pause"/>
+                                    <connections>
+                                        <action selector="clickPlayOrPauseBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="DIB-E6-hHl"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nT-Wp-iyH">
-                                    <rect key="frame" x="80" y="21" width="41.5" height="18"/>
+                                    <rect key="frame" x="65" y="6" width="41.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-3j-k2R" userLabel="totalProgress">
-                                    <rect key="frame" x="140" y="28.5" width="332" height="2"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvB-3j-k2R" userLabel="totalProgress">
+                                    <rect key="frame" x="140" y="13" width="332" height="2"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-hp-VcG" userLabel="currentProgress">
                                             <rect key="frame" x="0.0" y="0.0" width="232" height="2"/>
@@ -78,14 +88,14 @@
                                         <constraint firstAttribute="height" constant="2" id="ulO-P9-u67"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2:30:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-gc-P2E">
-                                    <rect key="frame" x="488" y="20" width="53.5" height="18"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:30:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-gc-P2E">
+                                    <rect key="frame" x="488" y="6" width="53.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="knob" highlightedImage="knob_highlighted" translatesAutoresizingMaskIntoConstraints="NO" id="VGy-fr-os9">
-                                    <rect key="frame" x="121" y="14" width="30" height="30"/>
+                                    <rect key="frame" x="127" y="2" width="29" height="29"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.98823529409999999" green="0.73333333329999995" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,11 +109,11 @@
                                 <constraint firstAttribute="trailing" secondItem="HvB-3j-k2R" secondAttribute="trailing" constant="90" id="kyp-Ub-2C9"/>
                                 <constraint firstItem="km3-rq-yBf" firstAttribute="leading" secondItem="HCT-5b-Wdu" secondAttribute="leading" constant="20" id="lcV-IT-P06"/>
                                 <constraint firstItem="km3-rq-yBf" firstAttribute="centerY" secondItem="HCT-5b-Wdu" secondAttribute="centerY" id="nAe-MZ-tLy"/>
-                                <constraint firstAttribute="height" constant="60" id="nfJ-Q6-WnE"/>
+                                <constraint firstAttribute="height" constant="30" id="nfJ-Q6-WnE"/>
                             </constraints>
                         </view>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-Ns-p9L" userLabel="currentTime">
-                            <rect key="frame" x="103" y="223" width="60" height="35"/>
+                            <rect key="frame" x="102" y="237" width="83" height="33"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="6"/>
                             <state key="normal" title="2:20" backgroundImage="tp_info_popup">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,7 +139,15 @@
                 <constraint firstItem="8sx-W1-LPx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uRj-ZA-lpQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="339" y="253"/>
+            <connections>
+                <outlet property="currentProgressConW" destination="acc-WK-4ZP" id="c33-NG-tPr"/>
+                <outlet property="currentTimeLabel" destination="1nT-Wp-iyH" id="1gx-Sz-w1q"/>
+                <outlet property="progressTimeBtn" destination="X8h-Ns-p9L" id="Kxc-xV-LRY"/>
+                <outlet property="sliderView" destination="VGy-fr-os9" id="rGd-Da-fad"/>
+                <outlet property="totalProgressView" destination="HvB-3j-k2R" id="VSd-J0-SfM"/>
+                <outlet property="totalTimeLabel" destination="VOo-gc-P2E" id="i7f-Jo-LAM"/>
+            </connections>
+            <point key="canvasLocation" x="334" y="256"/>
         </view>
     </objects>
     <resources>

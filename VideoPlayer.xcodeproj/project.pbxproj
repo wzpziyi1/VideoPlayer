@@ -20,6 +20,8 @@
 		09189CAE1D2CA49200BC218F /* ZYOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09189CA71D2CA49200BC218F /* ZYOverlayView.xib */; };
 		09189CAF1D2CA49200BC218F /* ZYPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09189CA91D2CA49200BC218F /* ZYPlayerView.m */; };
 		09189CB11D2CA4C200BC218F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09189CB01D2CA4C200BC218F /* AVFoundation.framework */; };
+		091CED961D3392C100E4A987 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 091CED931D3392C100E4A987 /* UIView+AutoLayout.m */; };
+		091CED971D3392C100E4A987 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 091CED951D3392C100E4A987 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,12 @@
 		09189CA91D2CA49200BC218F /* ZYPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYPlayerView.m; sourceTree = "<group>"; };
 		09189CB01D2CA4C200BC218F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		09189CB31D2CA9C000BC218F /* ZYTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYTransport.h; sourceTree = "<group>"; };
+		091CED8F1D33838F00E4A987 /* ZYCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYCommon.h; sourceTree = "<group>"; };
+		091CED901D33841A00E4A987 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		091CED921D3392C100E4A987 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		091CED931D3392C100E4A987 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		091CED941D3392C100E4A987 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		091CED951D3392C100E4A987 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,13 +163,16 @@
 		09189C9B1D2CA49200BC218F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				091CED8F1D33838F00E4A987 /* ZYCommon.h */,
 				09189C9C1D2CA49200BC218F /* AppDelegate.h */,
 				09189C9D1D2CA49200BC218F /* AppDelegate.m */,
+				091CED911D3391C900E4A987 /* Category */,
 				09189CB21D2CA98600BC218F /* Protocol */,
 				09189C9E1D2CA49200BC218F /* Model */,
 				09189C9F1D2CA49200BC218F /* Tool */,
 				09189CA01D2CA49200BC218F /* Vc */,
 				09189CA41D2CA49200BC218F /* View */,
+				091CED901D33841A00E4A987 /* PrefixHeader.pch */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -208,6 +219,17 @@
 				09189CB31D2CA9C000BC218F /* ZYTransport.h */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		091CED911D3391C900E4A987 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				091CED921D3392C100E4A987 /* UIView+AutoLayout.h */,
+				091CED931D3392C100E4A987 /* UIView+AutoLayout.m */,
+				091CED941D3392C100E4A987 /* UIView+Extension.h */,
+				091CED951D3392C100E4A987 /* UIView+Extension.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +369,8 @@
 				09189CAD1D2CA49200BC218F /* ZYOverlayView.m in Sources */,
 				09189CAF1D2CA49200BC218F /* ZYPlayerView.m in Sources */,
 				09189C671D2CA46600BC218F /* main.m in Sources */,
+				091CED961D3392C100E4A987 /* UIView+AutoLayout.m in Sources */,
+				091CED971D3392C100E4A987 /* UIView+Extension.m in Sources */,
 				09189CAB1D2CA49200BC218F /* ZYPlayerVc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +507,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = VideoPlayer/Class/PrefixHeader.pch;
 				INFOPLIST_FILE = VideoPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chutong.www;
@@ -495,6 +521,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = VideoPlayer/Class/PrefixHeader.pch;
 				INFOPLIST_FILE = VideoPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chutong.www;
@@ -567,6 +595,7 @@
 				09189C941D2CA46700BC218F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09189C951D2CA46700BC218F /* Build configuration list for PBXNativeTarget "VideoPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -575,6 +604,7 @@
 				09189C971D2CA46700BC218F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09189C981D2CA46700BC218F /* Build configuration list for PBXNativeTarget "VideoPlayerUITests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +613,7 @@
 				09189C9A1D2CA46700BC218F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

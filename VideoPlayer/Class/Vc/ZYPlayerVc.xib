@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZYPlayerVc">
             <connections>
-                <outlet property="playerView" destination="XKs-qH-hvJ" id="Xyn-qB-1kE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,34 +14,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKs-qH-hvJ" customClass="ZYPlayerView">
-                    <rect key="frame" x="20" y="20" width="280" height="250"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="250" id="dMa-Hf-KkZ"/>
-                    </constraints>
-                </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCZ-JX-yj6">
-                    <rect key="frame" x="110" y="340" width="100" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="SeJ-bs-Ltk"/>
-                        <constraint firstAttribute="height" constant="30" id="qjg-bM-lnm"/>
-                    </constraints>
-                    <state key="normal" title="播放"/>
-                    <connections>
-                        <action selector="clickPlayBtn:" destination="-1" eventType="touchUpInside" id="Z3X-yb-Jlf"/>
-                    </connections>
-                </button>
-            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="XKs-qH-hvJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="0I1-dm-WTs"/>
-                <constraint firstItem="MCZ-JX-yj6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q9z-D4-Ukz"/>
-                <constraint firstItem="MCZ-JX-yj6" firstAttribute="top" secondItem="XKs-qH-hvJ" secondAttribute="bottom" constant="70" id="TPU-OR-8GD"/>
-                <constraint firstAttribute="trailing" secondItem="XKs-qH-hvJ" secondAttribute="trailing" constant="20" id="kbe-gf-Sp0"/>
-                <constraint firstItem="XKs-qH-hvJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="wqc-f3-T4A"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

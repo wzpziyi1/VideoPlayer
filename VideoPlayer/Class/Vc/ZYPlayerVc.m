@@ -12,13 +12,15 @@
 #import "ZYTransport.h"
 
 @interface ZYPlayerVc () <ZYTransportDelegate>
-@property (weak, nonatomic) IBOutlet ZYPlayerView *playerView;
+@property (strong, nonatomic) ZYPlayerView *playerView;
 
 @property (nonatomic, strong) AVPlayer *player;
 
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 
 @property (nonatomic, weak) id<ZYTransport>transport;
+
+@property (nonatomic, assign) CGFloat scale;
 
 @end
 
@@ -40,10 +42,31 @@
     self.player = [[AVPlayer alloc] initWithPlayerItem:self.playerItem];
     
     self.playerView.player = self.player;
+    self.playerView.frame = CGRectMake(0, 30, kScreenW, kScreenW * kScreenW / kScreenH);
+    self.scale = kScreenW / self.playerView.height;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (ZYPlayerView *)playerView
+{
+    if (_playerView == nil)
+    {
+        _playerView = [[ZYPlayerView alloc] init];
+        _playerView.backgroundColor = [UIColor blackColor];
+        self.transport = _playerView.transport;
+        self.transport.delegate = self;
+        [self.view addSubview:_playerView];
+    }
+    return _playerView;
+}
+
 - (IBAction)clickPlayBtn:(id)sender {
     [self.playerView.player play];
 }
@@ -66,7 +89,7 @@
             NSLog(@"1111111");
         }
     }
-    else if ([keyPath isEqualToString:@"loadedTimeRanges"])
+    else if ([keyPath isEqualToString:@"loadedTimeRanges"])    //缓冲
     {
         
     }
@@ -81,17 +104,17 @@
 
 - (void)play
 {
-    
+    [self.playerView.player play];
 }
 
 - (void)pause
 {
-    
+    [self.playerView.player pause];
 }
 
 - (void)stop
 {
-    
+    [self.playerView.player pause];
 }
 
 /**
@@ -103,6 +126,31 @@
     
 }
 
+/**
+ *  视频横屏
+ *
+ *  @param flag YES为是
+ */
+- (void)fullScreenOrNormalSizeWithFlag:(BOOL)flag
+{
+    
+    if (flag)
+    {
+        CGFloat moveY = self.view.center.y - self.playerView.center.y;
+        CGAffineTransform tmpTransform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, moveY), self.scale, self.scale);
+        CGAffineTransform transform = CGAffineTransformRotate(tmpTransform, - M_PI_2);
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            self.playerView.transform = transform;
+        }];
+    }
+    else
+    {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.playerView.transform = CGAffineTransformIdentity;
+        }];
+    }
+}
 
 
 - (void)dealloc

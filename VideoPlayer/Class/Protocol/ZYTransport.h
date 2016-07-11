@@ -23,6 +23,13 @@
  */
 - (void)jumpedToTime:(NSTimeInterval)time;
 
+
+/**
+ *  视频横屏
+ *
+ *  @param flag YES为是
+ */
+- (void)fullScreenOrNormalSizeWithFlag:(BOOL)flag;
 @end
 
 @protocol ZYTransport <NSObject>
@@ -51,4 +58,6 @@
  *  视频播放完毕
  */
 - (void)playbackComplete;
+
+
 @end
