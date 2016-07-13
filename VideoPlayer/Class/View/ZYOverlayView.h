@@ -11,9 +11,14 @@
 
 @interface ZYOverlayView : UIView <ZYTransport>
 
-@property (nonatomic, assign) CMTime durationTime;
+@property (nonatomic, assign) NSTimeInterval durationTime;
 
 @property (nonatomic, weak) id<ZYTransportDelegate>delegate;
+
+/**
+ *  是否正在缓冲
+ */
+@property (nonatomic, assign) BOOL isBuffering;
 
 + (instancetype)overlayView;
 

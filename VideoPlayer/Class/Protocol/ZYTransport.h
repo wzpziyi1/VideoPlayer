@@ -34,7 +34,12 @@
 
 @protocol ZYTransport <NSObject>
 
-@property (nonatomic, assign) CMTime durationTime;
+/**
+ *  是否正在缓冲
+ */
+@property (nonatomic, assign) BOOL isBuffering;
+
+@property (nonatomic, assign) NSTimeInterval durationTime;
 
 @property (nonatomic, weak) id<ZYTransportDelegate>delegate;
 

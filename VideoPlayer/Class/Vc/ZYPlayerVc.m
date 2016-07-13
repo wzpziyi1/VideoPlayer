@@ -22,6 +22,10 @@
 
 @property (nonatomic, assign) CGFloat scale;
 
+/**
+ *  是否获取了视频长度
+ */
+@property (nonatomic, assign) BOOL isFetchTotalDuration;
 @end
 
 @implementation ZYPlayerVc
@@ -30,8 +34,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.isFetchTotalDuration = NO;
     
-    NSURL *url = [NSURL URLWithString:@"http://www.jxvdy.com/file/upload/201405/05/18-24-58-42-627.mp4"];
+    NSURL *url = [NSURL URLWithString:@"http://v.jxvdy.com/sendfile/w5bgP3A8JgiQQo5l0hvoNGE2H16WbN09X-ONHPq3P3C1BISgf7C-qVs6_c8oaw3zKScO78I--b0BGFBRxlpw13sf2e54QA"];
     self.playerItem = [[AVPlayerItem alloc] initWithURL:url];
     
     //监听status属性
@@ -52,6 +57,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
 - (ZYPlayerView *)playerView
@@ -61,19 +68,16 @@
         _playerView = [[ZYPlayerView alloc] init];
         _playerView.backgroundColor = [UIColor blackColor];
         self.transport = _playerView.transport;
+        self.transport.isBuffering = YES;
         self.transport.delegate = self;
         [self.view addSubview:_playerView];
     }
     return _playerView;
 }
 
-- (IBAction)clickPlayBtn:(id)sender {
-    [self.playerView.player play];
-}
-
 - (void)moviePlayDidEnd:(NSNotification *)note
 {
-    
+    self.isFetchTotalDuration = NO;
 }
 
 //kvo
@@ -86,12 +90,20 @@
         NSLog(@"%d", (int)[item status]);
         if ([item status] == AVPlayerStatusReadyToPlay)
         {
-            NSLog(@"1111111");
+            
+            if (!self.isFetchTotalDuration)
+            {
+                //获取视频总长度
+                NSTimeInterval totalDuration = CMTimeGetSeconds(item.duration);
+                self.transport.durationTime = totalDuration;
+                self.isFetchTotalDuration = YES;
+            }
+            
         }
     }
     else if ([keyPath isEqualToString:@"loadedTimeRanges"])    //缓冲
     {
-        
+        self.transport.isBuffering = NO;
     }
     else
     {
@@ -114,7 +126,8 @@
 
 - (void)stop
 {
-    [self.playerView.player pause];
+    self.isFetchTotalDuration = NO;
+    [self.player setRate:0];
 }
 
 /**
@@ -127,7 +140,7 @@
 }
 
 /**
- *  视频横屏
+ *  视频横竖屏
  *
  *  @param flag YES为是
  */
