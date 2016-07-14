@@ -200,11 +200,6 @@
     _isFinishedJump = NO;
 }
 
-- (void)playbackComplete
-{
-    
-}
-
 
 - (IBAction)clickFinishBtn:(id)sender
 {

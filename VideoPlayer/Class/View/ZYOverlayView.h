@@ -28,7 +28,4 @@
 
 + (instancetype)overlayView;
 
-
-- (void)playbackComplete;
-
 @end

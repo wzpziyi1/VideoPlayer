@@ -84,6 +84,14 @@
 - (void)moviePlayDidEnd:(NSNotification *)note
 {
     self.isFetchTotalDuration = NO;
+    __weak typeof(self) tmp = self;
+    
+    [self.player seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
+        tmp.transport.currentPlayTime = 0;
+        tmp.transport.currentBufferTime = 0;
+        tmp.transport.durationTime = 0;
+    }];
+    
 }
 
 //kvo
@@ -189,7 +197,7 @@
 {
     
     self.isFetchTotalDuration = NO;
-    [self.player setRate:0];
+    [self moviePlayDidEnd:nil];
 }
 
 /**

@@ -54,10 +54,10 @@
                             <rect key="frame" x="0.0" y="290" width="562" height="30"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km3-rq-yBf" userLabel="playBtn">
-                                    <rect key="frame" x="10" y="2" width="40" height="25"/>
+                                    <rect key="frame" x="5" y="3.5" width="35" height="22"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="VOQ-kG-HlC"/>
-                                        <constraint firstAttribute="width" constant="40" id="xEW-Wd-LyX"/>
+                                        <constraint firstAttribute="height" constant="22" id="VOQ-kG-HlC"/>
+                                        <constraint firstAttribute="width" constant="35" id="xEW-Wd-LyX"/>
                                     </constraints>
                                     <state key="normal" image="play"/>
                                     <state key="selected" image="pause"/>
@@ -66,7 +66,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nT-Wp-iyH">
-                                    <rect key="frame" x="50" y="7" width="46.5" height="16"/>
+                                    <rect key="frame" x="40" y="7" width="46.5" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -115,7 +115,7 @@
                                 <constraint firstItem="1nT-Wp-iyH" firstAttribute="leading" secondItem="km3-rq-yBf" secondAttribute="trailing" id="bGs-YF-Lxq"/>
                                 <constraint firstItem="VOo-gc-P2E" firstAttribute="centerY" secondItem="HCT-5b-Wdu" secondAttribute="centerY" id="jCg-l0-hXb"/>
                                 <constraint firstAttribute="trailing" secondItem="HvB-3j-k2R" secondAttribute="trailing" constant="70" id="kyp-Ub-2C9"/>
-                                <constraint firstItem="km3-rq-yBf" firstAttribute="leading" secondItem="HCT-5b-Wdu" secondAttribute="leading" constant="10" id="lcV-IT-P06"/>
+                                <constraint firstItem="km3-rq-yBf" firstAttribute="leading" secondItem="HCT-5b-Wdu" secondAttribute="leading" constant="5" id="lcV-IT-P06"/>
                                 <constraint firstItem="km3-rq-yBf" firstAttribute="centerY" secondItem="HCT-5b-Wdu" secondAttribute="centerY" id="nAe-MZ-tLy"/>
                                 <constraint firstAttribute="height" constant="30" id="nfJ-Q6-WnE"/>
                             </constraints>
