@@ -15,6 +15,9 @@
  */
 @property (weak, nonatomic) IBOutlet UIView *totalProgressView;
 
+@property (weak, nonatomic) IBOutlet UIView *bufferProgressView;
+
+
 /**
  *  进度上面的显示时间
  */
@@ -29,6 +32,8 @@
  *  总进度View
  */
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+
+
 
 /**
  *  滑块
@@ -172,6 +177,7 @@
 {
     _currentBufferTime = currentBufferTime;
     
+    self.bufferProgressView.width = self.totalProgressView.width * currentBufferTime / _durationTime;
     self.currentProgressConW.constant = self.totalProgressView.width * currentBufferTime / _durationTime;
 }
 
