@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VideoPlayer/Class/View/ZYOverlayView.m"
-            timestampString = "490162239.215176"
+            timestampString = "490175069.439607"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-setCurrentPlayTime:"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-setIsBuffering:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VideoPlayer/Class/View/ZYOverlayView.m"
+            timestampString = "490175071.16779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "-setIsBuffering:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

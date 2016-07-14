@@ -73,6 +73,10 @@
  */
 @property (nonatomic, assign) BOOL isShowing;
 
+/**
+ *  不是由于缓冲或者拖动滑块导致的暂停（也就是必然的暂停，交互时的暂停）
+ */
+@property (nonatomic, assign) BOOL isCertainPause;
 @end
 
 @implementation ZYOverlayView
@@ -99,6 +103,7 @@
     self.isControlHidden = YES;
     self.isShowing = YES;
     self.indicatorView.hidden = YES;
+    self.isCertainPause = NO;
     [self.indicatorView startAnimating];
     
     self.layer.masksToBounds = YES;
@@ -120,16 +125,34 @@
 {
     _isBuffering = isBuffering;
     
+    if (self.isCertainPause) return;
+    self.isCertainPause = NO;
+    
+    //由btn的tag来判断此次事件是交互的暂停，还是缓冲导致的暂停
+    self.playOrPauseBtn.tag = 1;
     if (isBuffering)
     {
         self.indicatorView.hidden = NO;
         self.playOrPauseBtn.enabled = NO;
+        
+        
+        if (self.playOrPauseBtn.selected)
+        {
+            
+            [self clickPlayOrPauseBtn:self.playOrPauseBtn];
+        }
     }
     else
     {
         self.indicatorView.hidden = YES;
         self.playOrPauseBtn.enabled = YES;
+        
+        if (!self.playOrPauseBtn.selected)
+        {
+            [self clickPlayOrPauseBtn:self.playOrPauseBtn];
+        }
     }
+    self.playOrPauseBtn.tag = 0;
 }
 
 - (void)setCurrentPlayTime:(NSTimeInterval)currentPlayTime
@@ -143,6 +166,13 @@
     
     _sliderConLeft.constant = self.totalProgressView.x + self.sliderView.centerX - self.sliderView.width / 2;
     
+}
+
+- (void)setCurrentBufferTime:(NSTimeInterval)currentBufferTime
+{
+    _currentBufferTime = currentBufferTime;
+    
+    self.currentProgressConW.constant = self.totalProgressView.width * currentBufferTime / _durationTime;
 }
 
 - (void)playbackComplete
@@ -179,6 +209,16 @@
 - (IBAction)clickPlayOrPauseBtn:(UIButton *)sender
 {
     [self.timer invalidate];
+    [self resetTimer];
+    
+    if (!sender.tag && sender.selected)
+    {
+        self.isCertainPause = YES;
+    }
+    else
+    {
+        self.isCertainPause = NO;
+    }
     
     sender.selected = !sender.selected;
     
@@ -197,7 +237,7 @@
         }
     }
     
-    [self resetTimer];
+    
 }
 
 /**

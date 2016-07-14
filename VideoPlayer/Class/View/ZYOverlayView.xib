@@ -75,16 +75,18 @@
                                     <rect key="frame" x="110" y="14" width="382" height="2"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-hp-VcG" userLabel="currentProgress">
-                                            <rect key="frame" x="0.0" y="0.0" width="282" height="2"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="2"/>
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" id="N3r-KJ-ufo"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="G7n-hp-VcG" firstAttribute="top" secondItem="HvB-3j-k2R" secondAttribute="top" id="a2c-tb-Tco"/>
-                                        <constraint firstAttribute="trailing" secondItem="G7n-hp-VcG" secondAttribute="trailing" constant="100" id="acc-WK-4ZP"/>
-                                        <constraint firstAttribute="bottom" secondItem="G7n-hp-VcG" secondAttribute="bottom" id="awc-2w-zKa"/>
-                                        <constraint firstItem="G7n-hp-VcG" firstAttribute="leading" secondItem="HvB-3j-k2R" secondAttribute="leading" id="fdE-gr-h1R"/>
+                                        <constraint firstAttribute="bottom" secondItem="G7n-hp-VcG" secondAttribute="bottom" id="ILG-tZ-K0O"/>
+                                        <constraint firstItem="G7n-hp-VcG" firstAttribute="top" secondItem="HvB-3j-k2R" secondAttribute="top" id="J5r-lI-oiW"/>
+                                        <constraint firstItem="G7n-hp-VcG" firstAttribute="leading" secondItem="HvB-3j-k2R" secondAttribute="leading" id="h2Z-bv-q6s"/>
                                         <constraint firstAttribute="height" constant="2" id="ulO-P9-u67"/>
                                     </constraints>
                                 </view>
@@ -154,7 +156,7 @@
             <connections>
                 <outlet property="bottomView" destination="HCT-5b-Wdu" id="Wqi-fe-BPf"/>
                 <outlet property="bottomViewConBottom" destination="ihS-oj-9j5" id="Ryl-Np-OgV"/>
-                <outlet property="currentProgressConW" destination="acc-WK-4ZP" id="c33-NG-tPr"/>
+                <outlet property="currentProgressConW" destination="N3r-KJ-ufo" id="J0P-5d-PMn"/>
                 <outlet property="currentTimeLabel" destination="1nT-Wp-iyH" id="1gx-Sz-w1q"/>
                 <outlet property="indicatorView" destination="2td-tc-YGU" id="m8y-Rj-NCB"/>
                 <outlet property="playOrPauseBtn" destination="km3-rq-yBf" id="2bU-kN-Fdc"/>

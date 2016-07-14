@@ -62,11 +62,5 @@
     return self.overlayView;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-//    self.overlayView.bounds = self.bounds;
-}
 
 @end
