@@ -198,7 +198,13 @@
  */
 - (void)jumpedToTime:(NSTimeInterval)time
 {
-    
+    __weak typeof(self) tmp = self;
+    [self.player seekToTime:CMTimeMakeWithSeconds(time, NSEC_PER_SEC) completionHandler:^(BOOL finished) {
+        if (finished)
+        {
+            tmp.transport.isFinishedJump = YES;
+        }
+    }];
 }
 
 /**

@@ -39,6 +39,11 @@
  */
 @property (nonatomic, assign) BOOL isBuffering;
 
+/**
+ *  是否完成跳转
+ */
+@property (nonatomic, assign) BOOL isFinishedJump;
+
 @property (nonatomic, assign) NSTimeInterval durationTime;
 
 @property (nonatomic, weak) id<ZYTransportDelegate>delegate;

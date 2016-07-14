@@ -20,6 +20,8 @@
  */
 @property (nonatomic, assign) BOOL isBuffering;
 
+@property (nonatomic, assign) BOOL isFinishedJump;
+
 @property (nonatomic, assign) NSTimeInterval currentPlayTime;
 
 @property (nonatomic, assign) NSTimeInterval currentBufferTime;

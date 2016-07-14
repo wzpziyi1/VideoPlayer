@@ -82,6 +82,11 @@
  *  不是由于缓冲或者拖动滑块导致的暂停（也就是必然的暂停，交互时的暂停）
  */
 @property (nonatomic, assign) BOOL isCertainPause;
+
+/**
+ *  是否正在拖动滑块
+ */
+@property (nonatomic, assign) BOOL isDraggingSlider;
 @end
 
 @implementation ZYOverlayView
@@ -109,6 +114,9 @@
     self.isShowing = YES;
     self.indicatorView.hidden = YES;
     self.isCertainPause = NO;
+    self.isDraggingSlider = NO;
+    self.progressTimeBtn.hidden = YES;
+    
     [self.indicatorView startAnimating];
     
     self.layer.masksToBounds = YES;
@@ -164,13 +172,14 @@
 {
     _currentPlayTime = currentPlayTime;
     
-    
-    self.currentTimeLabel.text = [self converTimeToStringWithTime:currentPlayTime];
-    
-    self.sliderView.centerX =  (currentPlayTime / _durationTime) * self.totalProgressView.width;
-    
-    _sliderConLeft.constant = self.totalProgressView.x + self.sliderView.centerX - self.sliderView.width / 2;
-    
+    if (!self.isDraggingSlider)
+    {
+        self.currentTimeLabel.text = [self converTimeToStringWithTime:currentPlayTime];
+        
+        self.sliderView.centerX =  (currentPlayTime / _durationTime) * self.totalProgressView.width;
+        
+        _sliderConLeft.constant = self.totalProgressView.x + self.sliderView.centerX - self.sliderView.width / 2;
+    }
 }
 
 - (void)setCurrentBufferTime:(NSTimeInterval)currentBufferTime
@@ -179,6 +188,16 @@
     
     self.bufferProgressView.width = self.totalProgressView.width * currentBufferTime / _durationTime;
     self.currentProgressConW.constant = self.totalProgressView.width * currentBufferTime / _durationTime;
+}
+
+- (void)setIsFinishedJump:(BOOL)isFinishedJump
+{
+    _isFinishedJump = isFinishedJump;
+    if (isFinishedJump)
+    {
+        self.isDraggingSlider = NO;
+    }
+    _isFinishedJump = NO;
 }
 
 - (void)playbackComplete
@@ -259,12 +278,19 @@
     [recognizer setTranslation:CGPointZero inView:self.bottomView];
     
     CGFloat x = point.x;
-    
+    self.isDraggingSlider = YES;
     if (recognizer.state == UIGestureRecognizerStateEnded)
     {
         [self resetTimer];
+        
         self.progressTimeBtn.hidden = YES;
         
+        CGFloat jumpedTime = self.durationTime * (self.sliderView.centerX - self.totalProgressView.x) / self.totalProgressView.width;
+        
+        if ([self.delegate respondsToSelector:@selector(jumpedToTime:)])
+        {
+            [self.delegate jumpedToTime:jumpedTime];
+        }
     }
     else
     {
@@ -361,14 +387,7 @@
     int minute = (time - hour * 60 * 60) / 60;
     int second = (int)time % 60;
     
-    if (hour)
-    {
-        return [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];
-    }
-    else
-    {
-        return [NSString stringWithFormat:@"%02d:%02d", minute, second];
-    }
+    return [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];
 }
 
 - (void)layoutSubviews
