@@ -43,6 +43,8 @@
     self.overlayView = [ZYOverlayView overlayView];
     
     [self addSubview:self.overlayView];
+    
+    [self.overlayView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
 }
 
 - (AVPlayer *)player
@@ -64,8 +66,7 @@
 {
     [super layoutSubviews];
     
-    self.overlayView.frame = self.bounds;
-    
+//    self.overlayView.bounds = self.bounds;
 }
 
 @end

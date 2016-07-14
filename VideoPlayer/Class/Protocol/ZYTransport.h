@@ -45,19 +45,13 @@
 
 /**
  *  设置当前播放的时间点
- *
- *  @param time     当前播放时间
- *  @param duration 视频总时长
  */
-- (void)setCurrentPlayTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
+@property (nonatomic, assign) NSTimeInterval currentPlayTime;
 
 /**
  *  设置当前缓冲的时间点
- *
- *  @param time     缓冲时间
- *  @param duration 视频总时长
  */
-- (void)setCurrentBufferTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
+@property (nonatomic, assign) NSTimeInterval currentBufferTime;
 
 /**
  *  视频播放完毕

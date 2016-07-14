@@ -20,11 +20,12 @@
  */
 @property (nonatomic, assign) BOOL isBuffering;
 
+@property (nonatomic, assign) NSTimeInterval currentPlayTime;
+
+@property (nonatomic, assign) NSTimeInterval currentBufferTime;
+
 + (instancetype)overlayView;
 
-- (void)setCurrentPlayTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
-
-- (void)setCurrentBufferTime:(NSTimeInterval)time duration:(NSTimeInterval)duration;
 
 - (void)playbackComplete;
 

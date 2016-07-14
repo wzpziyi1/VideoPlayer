@@ -50,6 +50,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewConTop;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConBottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sliderConLeft;
 
 
 /**
@@ -72,10 +73,6 @@
  */
 @property (nonatomic, assign) BOOL isShowing;
 
-/**
- *  当前播放时间
- */
-@property (nonatomic, assign) CGFloat currentPlayTime;
 @end
 
 @implementation ZYOverlayView
@@ -135,13 +132,16 @@
     }
 }
 
-- (void)setCurrentPlayTime:(NSTimeInterval)time duration:(NSTimeInterval)duration
+- (void)setCurrentPlayTime:(NSTimeInterval)currentPlayTime
 {
+    _currentPlayTime = currentPlayTime;
     
-}
-
-- (void)setCurrentBufferTime:(NSTimeInterval)time duration:(NSTimeInterval)duration
-{
+    
+    self.currentTimeLabel.text = [self converTimeToStringWithTime:currentPlayTime];
+    
+    self.sliderView.centerX =  (currentPlayTime / _durationTime) * self.totalProgressView.width;
+    
+    _sliderConLeft.constant = self.totalProgressView.x + self.sliderView.centerX - self.sliderView.width / 2;
     
 }
 
@@ -239,6 +239,8 @@
             self.sliderView.centerX = self.totalProgressView.x;
         }
         
+        _sliderConLeft.constant = self.sliderView.centerX - self.sliderView.width / 2;
+        
     }
 }
 
@@ -326,8 +328,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.sliderView.centerY = self.totalProgressView.centerY;
-    self.sliderView.centerX = self.totalProgressView.x + self.sliderView.width / 2;
 }
 
 @end

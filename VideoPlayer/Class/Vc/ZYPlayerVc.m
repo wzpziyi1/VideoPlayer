@@ -26,6 +26,8 @@
  *  是否获取了视频长度
  */
 @property (nonatomic, assign) BOOL isFetchTotalDuration;
+
+@property (nonatomic, strong) id timeObserver;
 @end
 
 @implementation ZYPlayerVc
@@ -99,6 +101,8 @@
                 self.isFetchTotalDuration = YES;
             }
             
+            [self monitorPlayingStatusWithItem:item];
+            
         }
     }
     else if ([keyPath isEqualToString:@"loadedTimeRanges"])    //缓冲
@@ -110,6 +114,20 @@
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
     
+}
+
+/**
+ *  监听播放状态
+ *
+ */
+- (void)monitorPlayingStatusWithItem:(AVPlayerItem *)item
+{
+    __weak typeof(self) tmp = self;
+    self.timeObserver = [self.playerView.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        
+        NSTimeInterval currentTime = CMTimeGetSeconds(time);
+        tmp.transport.currentPlayTime = currentTime;
+    }];
 }
 
 #pragma mark ----ZYTransportDelegate
@@ -170,7 +188,7 @@
 {
     [self.playerItem removeObserver:self forKeyPath:@"status"];
     [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-    
+    [self.playerView.player removeTimeObserver:self.timeObserver];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
