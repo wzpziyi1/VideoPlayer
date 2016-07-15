@@ -121,10 +121,10 @@
             self.isFetchTotalDuration = YES;
         }
         
-        if (self.transport.currentPlayTime <= self.transport.durationTime - 12)
+        if (self.transport.currentPlayTime <= self.transport.durationTime - 7)
         {
             //如果缓冲不够
-            if (self.bufferTime <= self.transport.currentPlayTime + 10)
+            if (self.bufferTime <= self.transport.currentPlayTime + 5)
             {
                 self.transport.isBuffering = YES;
             }
@@ -145,7 +145,6 @@
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
-    
 }
 
 /**
@@ -160,6 +159,8 @@
         NSTimeInterval currentTime = CMTimeGetSeconds(time);
         
         tmp.transport.currentPlayTime = currentTime;
+        
+        
     }];
 }
 
