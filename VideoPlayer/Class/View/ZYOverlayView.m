@@ -56,6 +56,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewConTop;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConBottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sliderConLeft;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *progressTimeConLeft;
+
 
 
 /**
@@ -305,7 +307,15 @@
         {
             self.sliderView.centerX = self.totalProgressView.x;
         }
+        //取消一切动画效果（一般来说，用来禁止隐式动画）
+        [UIView setAnimationsEnabled:NO];
+        CGFloat jumpedTime = self.durationTime * (self.sliderView.centerX - self.totalProgressView.x) / self.totalProgressView.width;
+        NSString *timeStr = [self converTimeToStringWithTime:jumpedTime];
+        self.progressTimeBtn.titleLabel.text = timeStr;
+        [self.progressTimeBtn setTitle:timeStr forState:UIControlStateNormal];
+        [UIView setAnimationsEnabled:YES];
         
+        self.progressTimeConLeft.constant = self.sliderView.centerX - self.progressTimeBtn.width / 2;
         _sliderConLeft.constant = self.sliderView.centerX - self.sliderView.width / 2;
         
     }

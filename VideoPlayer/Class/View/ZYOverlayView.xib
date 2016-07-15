@@ -53,8 +53,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HCT-5b-Wdu" userLabel="bottomView">
                             <rect key="frame" x="0.0" y="290" width="562" height="30"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km3-rq-yBf" userLabel="playBtn">
-                                    <rect key="frame" x="5" y="3.5" width="35" height="22"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km3-rq-yBf" userLabel="playBtn">
+                                    <rect key="frame" x="5" y="3" width="35" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="VOQ-kG-HlC"/>
                                         <constraint firstAttribute="width" constant="35" id="xEW-Wd-LyX"/>
@@ -65,7 +65,7 @@
                                         <action selector="clickPlayOrPauseBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="DIB-E6-hHl"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nT-Wp-iyH">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nT-Wp-iyH">
                                     <rect key="frame" x="40" y="7" width="46.5" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,7 +90,7 @@
                                         <constraint firstAttribute="height" constant="2" id="ulO-P9-u67"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:30:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-gc-P2E">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-gc-P2E">
                                     <rect key="frame" x="504" y="7" width="47.5" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,17 +120,21 @@
                                 <constraint firstAttribute="height" constant="30" id="nfJ-Q6-WnE"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-Ns-p9L" userLabel="currentTime">
-                            <rect key="frame" x="0.0" y="0.0" width="83" height="33"/>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2td-tc-YGU">
+                            <rect key="frame" x="271" y="150" width="20" height="20"/>
+                        </activityIndicatorView>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-Ns-p9L" userLabel="currentTime">
+                            <rect key="frame" x="67" y="249" width="83" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="3Rh-q1-fnW"/>
+                                <constraint firstAttribute="width" constant="83" id="SFZ-gP-WQ0"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="6"/>
                             <state key="normal" title="2:20:10" backgroundImage="tp_info_popup">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2td-tc-YGU">
-                            <rect key="frame" x="271" y="150" width="20" height="20"/>
-                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -142,6 +146,8 @@
                         <constraint firstItem="2td-tc-YGU" firstAttribute="centerX" secondItem="8sx-W1-LPx" secondAttribute="centerX" id="kT1-Jc-QfV"/>
                         <constraint firstItem="HvO-rr-Syb" firstAttribute="top" secondItem="8sx-W1-LPx" secondAttribute="top" id="lGv-28-wID"/>
                         <constraint firstItem="HvO-rr-Syb" firstAttribute="leading" secondItem="8sx-W1-LPx" secondAttribute="leading" id="lfN-Xq-Ulf"/>
+                        <constraint firstItem="X8h-Ns-p9L" firstAttribute="leading" secondItem="8sx-W1-LPx" secondAttribute="leading" constant="67" id="rmH-un-wUu"/>
+                        <constraint firstItem="HCT-5b-Wdu" firstAttribute="top" secondItem="X8h-Ns-p9L" secondAttribute="bottom" constant="8" id="slE-mk-DgJ"/>
                     </constraints>
                 </view>
             </subviews>
@@ -162,6 +168,7 @@
                 <outlet property="indicatorView" destination="2td-tc-YGU" id="m8y-Rj-NCB"/>
                 <outlet property="playOrPauseBtn" destination="km3-rq-yBf" id="2bU-kN-Fdc"/>
                 <outlet property="progressTimeBtn" destination="X8h-Ns-p9L" id="Kxc-xV-LRY"/>
+                <outlet property="progressTimeConLeft" destination="rmH-un-wUu" id="uQO-r2-hOM"/>
                 <outlet property="sliderConLeft" destination="Fjq-bf-wgy" id="De4-wb-6hi"/>
                 <outlet property="sliderView" destination="VGy-fr-os9" id="rGd-Da-fad"/>
                 <outlet property="topView" destination="HvO-rr-Syb" id="BQ4-nj-GAl"/>
